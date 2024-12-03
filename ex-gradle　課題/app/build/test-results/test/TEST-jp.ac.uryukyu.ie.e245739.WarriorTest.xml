@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jp.ac.uryukyu.ie.e245739.WarriorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-03T20:02:51" hostname="KishimotonoMacBook-Air.local" time="0.001">
+  <properties/>
+  <testcase name="testAttackWithWeaponSkill()" classname="jp.ac.uryukyu.ie.e245739.WarriorTest" time="0.001"/>
+  <system-out><![CDATA[ウォリアーリオの攻撃！ウェポンスキルを発動！スライムに30のダメージを与えた！！
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
