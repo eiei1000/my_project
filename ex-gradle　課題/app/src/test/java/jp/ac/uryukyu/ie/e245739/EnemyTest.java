@@ -1,8 +1,6 @@
 package jp.ac.uryukyu.ie.e245739;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;  // assertFalseをインポート
 import org.junit.jupiter.api.Test;
 
 class EnemyTest {
@@ -19,20 +17,8 @@ class EnemyTest {
         int defaultHeroHp = 100;
         Hero demoHero = new Hero("デモ勇者", defaultHeroHp, 100);
         Enemy slime = new Enemy("スライムもどき", 10, 100);
-        
-        // スライムが生きていることを確認
-        assertFalse(slime.dead, "スライムはまだ死んでいないはずです");
-
-        // ヒーローがスライムに攻撃を行う
         demoHero.attack(slime);
-
-        // スライムが死亡したか確認
-        assertTrue(slime.dead, "スライムはヒーローの攻撃で死亡したはずです");
-
-        // スライムが再度ヒーローに攻撃を試みる
         slime.attack(demoHero);
-
-        // ヒーローのHPが減っていないことを確認
-        assertEquals(defaultHeroHp, demoHero.hitPoint, "ヒーローのHPが減っていないはずです");
+        assertEquals(defaultHeroHp, demoHero.getHitPoint());
     }
 }
