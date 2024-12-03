@@ -33,12 +33,24 @@ public class Enemy {
      * attackに応じて乱数でダメージを算出し、hero.wounded()によりダメージ処理を実行。
      * @param hero 攻撃対象
      */
-    public void attack(Hero hero){
-        int damage = (int)(Math.random() * attack);
-        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.name, damage);
-        hero.wounded(damage);
+    public void attack(Hero hero) {
+        // 自分が死亡していたら攻撃できない
+        if (this.dead) {
+            System.out.println(this.name + "は死亡しているため、攻撃できません！");
+            return;  // 攻撃を中止
+        }
+    
+        // 相手のヒーローが死亡していたら攻撃できない
+        if (hero.dead) {
+            System.out.println(hero.name + "は既に死亡しているため、攻撃できません！");
+            return;  // 攻撃を中止
+        }
+    
+        // ダメージの計算
+        int damage = (int)(Math.random() * this.attack);
+        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", this.name, hero.name, damage);
+        hero.wounded(damage);  // ヒーローにダメージを与える
     }
-
     /**
      * 自身へ攻撃されたときのダメージ処理をするメソッド。
      * 指定されたダメージを hitPoint から引き、死亡判定を行う。
